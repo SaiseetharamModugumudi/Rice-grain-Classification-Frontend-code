@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rice Grain Quality Classification</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <div class="container-fluid bg-light p-3">
+        <div class="row">
+            <!-- Left side: Logo and Title -->
+            <div class="col-md-6 d-flex align-items-center">
+                <img src="rice1.png" alt="Rice Logo" class="logo">
+                <h1 class="ms-3">Rice Grain Quality Classification</h1>
+            </div>
+            <!-- Right side: Navigation Menu -->
+            <div class="col-md-6">
+                <nav class="navbar navbar-expand-lg navbar-light float-end">
+                    <div class="container-fluid">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav" >
+                            <ul class="navbar-nav ms-auto right-tabs">
+  <li class="nav-item">
+    <a class="nav-link" href="#home" onclick="showTab('home')">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#grains" onclick="showTab('grains')">Grains</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#classification" onclick="showTab('classification')">Classification</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#result" onclick="showTab('result')">Result</a>
+  </li>
+</ul>
+
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tab Content -->
+    <div class="container mt-5">
+        <div id="home" class="tab-content">
+            
+            <h2>Welcome to Rice Grain Quality Classification</h2>
+        <p>
+            Rice is one of the most widely consumed staple foods in the world. Ensuring the quality of rice grains is crucial for both producers and consumers. This project aims to automate the classification of rice grains based on various quality parameters like size, shape, and texture using advanced Deep learning algorithms.
+        </p>
+        <p>
+            Our goal is to make grain classification faster, more accurate, and reliable, helping farmers and suppliers improve the efficiency of the rice production process. Explore the different sections to learn more about the grains, classification process, and results.
+        </p>
+            <!-- Images section -->
+            <div class="image-gallery">
+                <img src="img1.png" alt="Rice Grains 1">
+                <img src="img2.png" alt="Rice Grains 2">
+                <img src="img3.png" alt="Rice Grains 3">
+            </div>
+        </div>
+        
+        </div>
+
+        <div id="grains" class="tab-content" style="display: none;">
+            <h2>Grains</h2>
+            <h2>Types of Rice Grains</h2>
+            <p>
+                Rice grains come in various forms, differing in size, color, and texture. Below are some common types of rice grains considered for classification:
+            </p>
+            <ul>
+             <li><b>Short-Grain Rice:</b> Known for its sticky texture when cooked, this rice is commonly used in dishes like sushi and risotto.</li>
+             <li><b>Medium-Grain Rice:</b> It has a moist, tender texture and is ideal for dishes like paella or fried rice.</li>
+             <li><b>Long-Grain Rice:</b> Fluffier and less sticky, this variety is perfect for pilafs and biryani. Basmati and jasmine are popular long-grain varieties.</li>
+             <li><b>Wild Rice:</b> Although not technically rice, wild rice is often included due to its rich flavor and chewy texture.</li>
+            </ul>
+            <p>
+             Understanding these grain types helps in classification as they exhibit different physical characteristics.
+            </p>
+            <div class="image-gallery">
+                <div class="image-container">
+                    <img src="img4.png" alt="Short Grain Rice">
+                    <p>Rice in Different Quality </p>
+                </div>
+                <div class="image-container">
+                    <img src="img5.png" alt="Medium Grain Rice">
+                    <p>Various Grains structures</p>
+                </div>
+                <div class="image-container">
+                    <img src="img6.png" alt="Long Grain Rice">
+                    <p>Types of Grains</p>
+                </div>
+        </div>
+    </div>
+        <div id="classification" class="tab-content" style="display: none;">
+            <h2>Classification</h2>
+            <p>Information about the classification process using Deep Learning.</p>
+            <h2>Grain Classification Process</h2>
+<p>
+    The classification of rice grains involves a combination of feature extraction and machine learning techniques.
+</p>
+<ol>
+    <li><b>Data Collection:</b> Collecting images or physical measurements of rice grains such as length, width, color, and texture.</li>
+    <li><b>Preprocessing:</b> Cleaning the data by removing noise and normalizing features for better model performance.</li>
+    <li><b>Feature Extraction:</b> Extracting useful features like grain size, shape, and texture from the dataset. This helps the machine learning model distinguish between different quality levels.</li>
+    <li><b>Model Training:</b> Using Deep learning algorithms such as CNN, Mobelnetv2 the model on the dataset.</li>
+    <li><b>Classification:</b> The trained model classifies rice grains into categories such as Broken, Mixed, Full grain based on their features.</li>
+</ol>
+<p>
+    The accuracy of the model is evaluated to ensure reliable predictions. By leveraging machine learning, we can achieve high precision in determining the quality of rice grains.
+</p>
+        <!-- Custom File Upload Section -->
+    <div class="upload-container">
+        <form id="classificationForm">
+            <div class="mb-3">
+                <!-- Hidden file input -->
+                <input type="file" id="fileInput" class="file-input" onchange="updateFileName()" style="display: none;">
+                
+                <!-- Custom label acting as button -->
+                <label for="fileInput" class="custom-file-label">Upload File</label>
+            </div>
+            
+            <div class="button-container">
+                <button type="submit" onclick="showTab('result')" class="btn btn-success submit-btn">Submit</button>
+            </div>
+        </form>
+    </div>
+        </div>
+
+        <div id="result" class="tab-content" style="display: none;">
+            <h2>Result</h2>
+            <p>Final classification results of rice grains.</p>
+<p>
+    After running the rice grains through the classification model, the results are displayed here. The model categorizes rice grains based on their physical features. <br>The categories include:
+</p>
+<ul>
+    <li><b>Premium Quality:</b> Grains that are uniform in size, shape, and free of impurities.</li>
+    <li><b>Standard Quality:</b> Grains that may have slight variations but are generally suitable for regular consumption.</li>
+    <li><b>Low Quality:</b> Grains that are broken, discolored, or have significant irregularities.</li>
+</ul>
+
+    <p>
+         Here are the results:
+    </p>
+    <div id="accuracy-result" class="result-box">
+        <!-- Placeholder for the accuracy result -->
+        <p>Accuracy: <span id="accuracy-value">Loading...</span></p>
+    </div>
+    <p>
+        Thank you for using the Rice Grain Quality Classification system!
+    </p>
+    <p>
+        <b>Download the full classification report:</b> <a href="#">Click here</a> to view detailed results of the rice grain quality classification.
+    </p>
+
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
